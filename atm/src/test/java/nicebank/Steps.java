@@ -9,12 +9,15 @@ import org.junit.Assert;
 public class Steps {
 
     class Account {
-        public void deposit(int openingBalance){
 
+        private int balance;
+
+        public void deposit(int openingBalance){
+            balance += openingBalance;
         }
 
         public int getBalance(){
-            return 0;
+            return balance;
         }
     }
 
