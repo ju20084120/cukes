@@ -10,24 +10,24 @@ public class Steps {
 
     class Account {
 
-        private int balance;
+        private Money balance = new Money();
 
-        public void deposit(int openingBalance){
-            balance += openingBalance;
+        public void deposit(Money openingBalance){
+            balance = balance.add(openingBalance);
         }
 
-        public int getBalance(){
+        public Money getBalance(){
             return balance;
         }
     }
 
-    @Given("^I have deposited \\$(\\d+) in my account$")
-    public void i_have_deposited_$_in_my_account(int amount) throws Throwable{
+    @Given("^I have deposited \\$(\\d+)\\.(\\d+) in my account$")
+    public void i_have_deposited_$_in_my_account(int dollars, int cents) throws Throwable{
         Account myAccount = new Account();
+        Money amount = new Money(dollars, cents);
         myAccount.deposit(amount);
 
-        Assert.assertEquals("Incorrect account balance - ",
-                amount, myAccount.getBalance());
+        Assert.assertEquals("Incorrect account balance - ", amount, myAccount.getBalance());
     }
 
     @When("^I request \\$(\\d+)$")
