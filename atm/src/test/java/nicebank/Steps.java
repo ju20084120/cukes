@@ -10,6 +10,39 @@ import tarnsforms.MoneyConverter;
 
 public class Steps {
 
+    private KnowsTheDomain helper;
+
+    public Steps(){
+        helper = new KnowsTheDomain();
+    }
+
+    class KnowsTheDomain{
+        private Account myAccount;
+        private CashSlot cashSlot;
+        private Teller teller;
+
+        public Account getMyAccount() {
+            if(myAccount == null){
+                myAccount = new Account();
+            }
+            return myAccount;
+        }
+
+        public CashSlot getCashSlot(){
+            if(cashSlot == null){
+                cashSlot = new CashSlot();
+            }
+            return cashSlot;
+        }
+
+        public Teller getTeller(){
+            if(teller == null){
+                teller = new Teller(helper.getCashSlot());
+            }
+            return teller;
+        }
+    }
+
     class Account {
 
         private Money balance = new Money();
@@ -23,23 +56,50 @@ public class Steps {
         }
     }
 
-    @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
-    public void i_have_deposited_$_in_my_account(@Transform(MoneyConverter.class) Money amount) throws Throwable{
-        Account myAccount = new Account();
-        myAccount.deposit(amount);
+    class Teller{
 
-        Assert.assertEquals("Incorrect account balance - ", amount, myAccount.getBalance());
+        private CashSlot cashSlot;
+
+        public Teller(CashSlot cashSlot){
+            this.cashSlot = cashSlot;
+        }
+
+        public void withdrawFrom(Account account, int dollars){
+            cashSlot.dispense(dollars);
+        }
     }
 
-    @When("^I request \\$(\\d+)$")
-    public void i_request_$(int amount) throws Throwable{
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    class CashSlot{
+
+        private int contents;
+
+        public int getContents(){
+            return contents;
+        }
+
+        public void dispense(int dollars){
+            contents = dollars;
+        }
+    }
+
+    @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
+    public void i_have_deposited_$_in_my_account(@Transform(MoneyConverter.class) Money amount) throws Throwable{
+        helper.getMyAccount().deposit(amount);
+
+        Assert.assertEquals("Incorrect account balance - ", amount,
+                helper.getMyAccount().getBalance());
+    }
+
+    @When("^I withdraw \\$(\\d+)$")
+    public void i_withdraw_$(int amount) throws Throwable {
+        helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
     }
 
     @Then("^\\$(\\d+) should be dispensed$")
-    public void $_should_be_dispensed() throws Throwable{
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void $_should_be_dispensed(int amount) throws Throwable {
+        Assert.assertEquals("Incorrect amount of dispensed cash - ", amount,
+                helper.getCashSlot().getContents());
     }
+
+
 }
