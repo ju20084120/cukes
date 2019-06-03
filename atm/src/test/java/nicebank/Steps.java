@@ -43,45 +43,6 @@ public class Steps {
         }
     }
 
-    class Account {
-
-        private Money balance = new Money();
-
-        public void deposit(Money openingBalance){
-            balance = balance.add(openingBalance);
-        }
-
-        public Money getBalance(){
-            return balance;
-        }
-    }
-
-    class Teller{
-
-        private CashSlot cashSlot;
-
-        public Teller(CashSlot cashSlot){
-            this.cashSlot = cashSlot;
-        }
-
-        public void withdrawFrom(Account account, int dollars){
-            cashSlot.dispense(dollars);
-        }
-    }
-
-    class CashSlot{
-
-        private int contents;
-
-        public int getContents(){
-            return contents;
-        }
-
-        public void dispense(int dollars){
-            contents = dollars;
-        }
-    }
-
     @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
     public void i_have_deposited_$_in_my_account(@Transform(MoneyConverter.class) Money amount) throws Throwable{
         helper.getMyAccount().deposit(amount);
