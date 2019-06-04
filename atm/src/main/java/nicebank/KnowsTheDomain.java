@@ -4,7 +4,7 @@ public class KnowsTheDomain {
 
         private Account myAccount;
         private CashSlot cashSlot;
-        private Teller teller;
+        private Teller automatedTeller;
 
         public Account getMyAccount() {
             if(myAccount == null){
@@ -20,11 +20,11 @@ public class KnowsTheDomain {
             return cashSlot;
         }
 
-        public Teller getTeller(){
-            if(teller == null){
-                teller = new Teller(getCashSlot());
+        public Teller getAutomatedTeller(){
+            if(automatedTeller == null){
+                automatedTeller = new AtmUserInterface();
             }
-            return teller;
+            return automatedTeller;
         }
 
 }

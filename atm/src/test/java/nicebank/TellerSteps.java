@@ -12,6 +12,6 @@ public class TellerSteps {
 
     @When("^I withdraw \\$(\\d+)$")
     public void i_withdraw_$(int amount) throws Throwable {
-        helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
+        helper.getAutomatedTeller().withdrawFrom(helper.getMyAccount(), amount);
     }
 }
