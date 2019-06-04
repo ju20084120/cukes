@@ -14,7 +14,8 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <picocontainer.version>2.14.2</picocontainer.version>
-    <jetty.version>9.2.0.M0</jetty.version>
+    <jetty.version>9.4.12.v20180830</jetty.version>
+    <selenium.version>3.5.1</selenium.version>
   </properties>
 
   <dependencies>
@@ -52,5 +53,18 @@
       <artifactId>jetty-webapp</artifactId>
       <version>${jetty.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/jetty-repacked -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>jetty-repacked</artifactId>
+      <version>9.4.12.v20180830</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+
   </dependencies>
 </project>
