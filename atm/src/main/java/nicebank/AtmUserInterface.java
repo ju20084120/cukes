@@ -10,7 +10,6 @@ public class AtmUserInterface implements Teller {
     private EventFiringWebDriver webDriver;
 
     public AtmUserInterface(){
-        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
         this.webDriver = new EventFiringWebDriver(new FirefoxDriver());
 
     }

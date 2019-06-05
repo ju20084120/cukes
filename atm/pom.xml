@@ -14,7 +14,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <picocontainer.version>2.14.2</picocontainer.version>
-    <jetty.version>9.4.12.v20180830</jetty.version>
+    <jetty.version>9.4.5.v20170502</jetty.version>
     <selenium.version>3.5.1</selenium.version>
   </properties>
 
@@ -57,7 +57,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>jetty-repacked</artifactId>
-      <version>9.4.12.v20180830</version>
+      <version>9.2.13.v20150730</version>
     </dependency>
 
     <dependency>
