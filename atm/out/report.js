@@ -7,15 +7,15 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 537291,
+  "duration": 480693,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5271278766,
+  "duration": 5467790833,
   "status": "passed"
 });
 formatter.before({
-  "duration": 154711,
+  "duration": 158491,
   "status": "passed"
 });
 formatter.scenario({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "AccountSteps.i_have_deposited_$_in_my_account(Money)"
 });
 formatter.result({
-  "duration": 175211526,
+  "duration": 389902683,
   "status": "passed"
 });
 formatter.match({
@@ -69,7 +69,7 @@ formatter.match({
   "location": "TellerSteps.i_withdraw_$(int)"
 });
 formatter.result({
-  "duration": 9677818933,
+  "duration": 12419879836,
   "status": "passed"
 });
 formatter.match({
@@ -82,9 +82,8 @@ formatter.match({
   "location": "CashSlotSteps.$_should_be_dispensed(int)"
 });
 formatter.result({
-  "duration": 2032134,
-  "error_message": "java.lang.AssertionError: Incorrect amount of dispensed cash -  expected:\u003c20\u003e but was:\u003c0\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\n\tat org.junit.Assert.assertEquals(Assert.java:645)\n\tat nicebank.CashSlotSteps.$_should_be_dispensed(CashSlotSteps.java:20)\n\tat ✽.Then $20 should be dispensed(nicebank/cash_withdrawal.feature:5)\n",
-  "status": "failed"
+  "duration": 1355513,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -96,19 +95,20 @@ formatter.match({
   "location": "AccountSteps.the_balance_of_my_account_should_be_$(Money)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 85119,
+  "status": "passed"
 });
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 5313433900,
+  "duration": 2599004383,
   "status": "passed"
 });
 formatter.after({
-  "duration": 30422711,
+  "duration": 22783296,
   "status": "passed"
 });
 formatter.after({
-  "duration": 133956,
+  "duration": 117056,
   "status": "passed"
 });
 });
