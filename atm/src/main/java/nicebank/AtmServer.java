@@ -10,15 +10,14 @@ public class AtmServer {
     private final Server server;
 
     public AtmServer(int port){
-        server = new Server(9988);
+        server = new Server(port);
 
-        ServletContextHandler contextHandler =
+        ServletContextHandler context =
                 new ServletContextHandler(ServletContextHandler.SESSIONS);
-
-        contextHandler.setContextPath("/");
-        server.setHandler(contextHandler);
-
-        contextHandler.addServlet(new ServletHolder(new AtmServlet()), "/*");
+        context.setContextPath("/");
+        server.setHandler(context);
+        context.addServlet(new ServletHolder(new AtmServlet()),"/*");
+        context.addServlet(new ServletHolder(new WithdrawalServlet()),"/withdraw");
     }
 
     public void start() throws Exception{

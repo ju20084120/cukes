@@ -1,0 +1,19 @@
+package nicebank;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class WithdrawalServlet extends HttpServlet {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        response.setContentType("text/html");
+        response.getWriter().println(
+                "<html><head><title>Nice Bank ATM</title></head>" +
+                        "<body>I don't know how to withdraw money yet, sorry</body>" + "</html>");
+
+    }
+}

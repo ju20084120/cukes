@@ -20,7 +20,12 @@ public class AtmUserInterface implements Teller {
             webDriver.get("http://localhost:9988");
             webDriver.findElement(By.id("Amount"))
                     .sendKeys(String.valueOf(dollars));
-            webDriver.findElement(By.id("Withdraw")).click();
+            webDriver.findElement(By.id("withdraw")).click();
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } finally {
             webDriver.close();
         }
