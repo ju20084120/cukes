@@ -2,9 +2,11 @@ package nicebank;
 
 public class Account {
 
+    private TransactionQueue queue = new TransactionQueue();
     private Money balance = new Money();
 
     public void credit(Money amount){
+        queue.write("+" + amount.toString());
         balance = balance.add(amount);
     }
 
